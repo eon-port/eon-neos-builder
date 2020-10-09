@@ -30,7 +30,7 @@ popd
 
 cd $DIR/mindroid
 
-$TOOLS/simg2img $DIR/mindroid/system/out/target/product/oneplus3/system.img system.img.raw
+$TOOLS/simg2img $DIR/mindroid/system/out/target/product/ido/system.img system.img.raw
 mkdir -p mnt
 sudo mount -o loop system.img.raw mnt
 sudo mkdir -p mnt/comma

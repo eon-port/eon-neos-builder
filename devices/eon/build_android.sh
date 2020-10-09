@@ -30,4 +30,4 @@ $TOOLS/repo init -u https://github.com/commaai/android.git -b aa44fb6fe6291f5a22
 $TOOLS/repo sync -c -j$JOBS
 
 export PATH=$PWD/bin:$PATH
-(source build/envsetup.sh && breakfast oneplus3 && make -j$JOBS)
+(source build/envsetup.sh && breakfast ido && make -j$JOBS)

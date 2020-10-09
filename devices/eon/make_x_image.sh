@@ -14,21 +14,19 @@ export ARCH=arm64
 $TOOLS/extract_toolchains.sh
 mkdir -p $OUT
 
-if [ ! -d android_kernel_comma_msm8996 ]; then
-  git clone https://github.com/commaai/android_kernel_comma_msm8996.git --depth 50
+if [ ! -d android_kernel_xiaomi_msm8916 ]; then
+  git clone https://github.com/eon-port/android_kernel_xiaomi_msm8916.git
 fi
 
 # Compile kernel
-cd android_kernel_comma_msm8996
-git checkout d2918fd9489da0eeda32ff7e465a28b0e0b94b5f
-git pull
+cd android_kernel_xiaomi_msm8916
 make comma_defconfig
 make -j$(nproc --all)
 cd ..
 
 # Assemble an unsigned boot.img
 $TOOLS/mkbootimg \
-  --kernel android_kernel_comma_msm8996/out/arch/arm64/boot/Image.gz-dtb \
+  --kernel android_kernel_xiaomi_msm8916/out/arch/arm64/boot/Image.gz-dtb \
   --cmdline "cma=32M@0-0xffffffff androidboot.hardware=qcom androidboot.selinux=permissive" \
   --base 0x80000000 \
   --kernel_offset 0x8000 \
